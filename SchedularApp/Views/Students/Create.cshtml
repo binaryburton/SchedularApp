@@ -1,0 +1,36 @@
+﻿@model SchedularApp.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create Student</h2>
+
+<h4>Student</h4>
+<hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <div>
+                <label asp-for="LastName" ></label>
+                <input asp-for="LastName" />
+                <span asp-validation-for="LastName" ></span>
+            </div>
+            <div>
+                <label asp-for="FirstName" ></label>
+                <input asp-for="FirstName" />
+                <span asp-validation-for="FirstName" ></span>
+            </div>
+            <div>
+                <label asp-for="EnrollmentDate" ></label>
+                <input asp-for="EnrollmentDate" />
+                <span asp-validation-for="EnrollmentDate" ></span>
+            </div>
+            <div>
+                <input type="submit" value="Create" />
+            </div>
+        </form>
+
+<div>
+    <a asp-action="Index">Back to Student List</a>
+</div>
+

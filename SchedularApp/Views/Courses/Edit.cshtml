@@ -1,0 +1,43 @@
+﻿@model SchedularApp.Models.Course
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Course</h4>
+<hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <input type="hidden" asp-for="CourseID" />
+            <div>
+                <label asp-for="CourseID" ></label>
+                <div>@Html.DisplayFor(model => model.CourseID)</div>
+            </div>
+            <div>
+                <label asp-for="Title" ></label>
+                <input asp-for="Title" />
+                <span asp-validation-for="Title" ></span>
+            </div>
+            <div>
+                <label asp-for="Credits" ></label>
+                <input asp-for="Credits" />
+                <span asp-validation-for="Credits" ></span>
+            </div>
+            <div>
+                    <label asp-for="Department" ></label>
+                    <select asp-for="DepartmentID" asp-items="ViewBag.DepartmentID">
+                        <option value="">-- Select Department --</option>
+                    </select>
+                    <span asp-validation-for="DepartmentID" />
+                </div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </form>
+
+<div>
+    <a asp-action="Index">Back to Course List</a>
+</div>
+

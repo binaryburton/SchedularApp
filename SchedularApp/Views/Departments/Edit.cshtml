@@ -1,0 +1,40 @@
+﻿@model SchedularApp.Models.Department
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Department</h4>
+<hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <input type="hidden" asp-for="DepartmentID" />
+            <input type="hidden" asp-for="RowVersion" />
+            <div >
+                <label asp-for="Name" ></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" ></span>
+            </div>
+            <div>
+                <label asp-for="StartDate" ></label>
+                <input asp-for="StartDate" />
+                <span asp-validation-for="StartDate" ></span>
+            </div>
+            <div>
+                <label asp-for="InstructorID" ></label>
+                <select asp-for="InstructorID" asp-items="ViewBag.InstructorID">
+                    <option value="">-- Select Administrator --</option>
+                </select>
+                <span asp-validation-for="InstructorID" ></span>
+            </div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </form>
+
+<div>
+    <a asp-action="Index">Back to Department List</a>
+</div>
+

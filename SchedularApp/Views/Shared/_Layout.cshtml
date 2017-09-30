@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SchedularApp </title>
+</head>
+<body>
+    <nav>
+        <div>
+            <div>
+                
+                <a asp-area="" asp-controller="Home" asp-action="Index" > Schedule Application </a>
+            </div>
+            <div>
+                <ul>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>               
+                    <li><a asp-area="" asp-controller="Students" asp-action="Index">Students</a></li>
+                    <li><a asp-area="" asp-controller="Courses" asp-action="Index">Courses</a></li>
+                    <li><a asp-area="" asp-controller="Instructors" asp-action="Index">Instructors</a></li>
+                    <li><a asp-area="" asp-controller="Departments" asp-action="Index">Departments</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+        <hr />
+     
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

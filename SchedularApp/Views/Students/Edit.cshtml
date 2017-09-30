@@ -1,0 +1,65 @@
+﻿@model SchedularApp.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Student</h2>
+
+<h4>Student</h4>
+<hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <input type="hidden" asp-for="ID" />
+            <div>
+                <label asp-for="LastName" ></label>
+                <input asp-for="LastName" />
+                <span asp-validation-for="LastName" ></span>
+            </div>
+            <div>
+                <label asp-for="FirstName" ></label>
+                <input asp-for="FirstName" />
+                <span asp-validation-for="FirstName" ></span>
+            </div>
+            <div>
+                <label asp-for="EnrollmentDate" ></label>
+                <input asp-for="EnrollmentDate" />
+                <span asp-validation-for="EnrollmentDate" ></span>
+            </div>
+
+            <div>
+        <table>
+            <tr>
+                @{
+                    int cnt = 0;
+                    List<SchedularApp.Models.SchoolViewModels.AssignedCourseData> courses = ViewBag.Courses;
+
+                    foreach (var course in courses)
+                    {
+                        if (cnt++ % 3 == 0)
+                        {
+                            @:</tr><tr>
+                        }
+                        @:<td>
+                            <input type="checkbox"
+                                   name="selectedCourses"
+                                   value="@course.CourseID"
+                                   @(Html.Raw(course.Assigned ? "checked=\"checked\"" : "")) />
+                                   @course.CourseID @:  @course.Title
+                        @:</td>
+                    }
+                    @:</tr>
+                }
+        </table>
+    </div>
+
+
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </form>
+
+<div>
+    <a asp-action="Index">Back to Student List</a>
+</div>
+
